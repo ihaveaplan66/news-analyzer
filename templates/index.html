@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsAnalyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='80' font-size='80' %3E📰%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <div class="container first-container">
+        <h1>NewsAnalyzer</h1>
+
+        <form method="POST">
+            <textarea name="query" placeholder="Enter search query (e.g., Tesla)" required></textarea>
+            <input type="number" name="num_articles" min="1" max="20" value="5" required placeholder="Number of articles (1-20)">
+            <button type="submit">Analyze</button>
+        </form>
+
+        <p style="margin-top: 10px; font-size: 14px; color: #aaa;">
+            <a href="/about" style="color: #bbb;">How does it work?</a>
+        </p>
+    </div>
+
+    {% if results %}
+        <div class="container res-container">
+            <h2 style="text-align: center">Analysis for '{{ query }}'</h2>
+            {% for article in results %}
+                <h3><b><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></b></h3>
+                <p class="meta-info">{{ article.category }} · {{ article.sentiment }}</p>
+                <p>{{ article.summary }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="container">
+            <h2>Sentiment Analysis</h2>
+            <img id="sentimentChart" src="" alt="Sentiment Analysis" style="display:none; max-width:100%;">
+            <p id="sentimentChartMessage" style="text-align: center; color: #aaa;">Charts are loading...</p>
+        </div>
+
+        <div class="container">
+            <h2>Trending Words</h2>
+            <ul style="list-style: none; padding: 0; text-align: center;">
+                {% for word, count in trending_words %}
+                    <li style="display: inline-block; margin: 5px; color: #bbb;">{{ word }} ({{ count }})</li>
+                {% endfor %}
+            </ul>
+            <img id="wordcloudChart" src="" alt="Word Cloud" style="display:none; max-width:100%;">
+            <p id="wordcloudChartMessage" style="text-align: center; color: #aaa;">Charts are loading...</p>
+        </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% endif %}
+</body>
+<footer>
+    Created by Volodymyr Shereperov | <a href="https://github.com/ihaveaplan66/news-analyzer" target="_blank">Source Code on GitHub</a>
+</footer>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - NewsAnalyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='80' font-size='80' %3E📰%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <div class="container about-container">
+        <h1>About NewsAnalyzer</h1>
+        <p>
+            NewsAnalyzer is an AI-powered tool designed to help you quickly understand the latest news trends. Simply enter your search query, and NewsAnalyzer will gather and analyze articles to deliver valuable insights.
+        </p>
+         <p>Here's how it works:</p>
+        <ul>
+            <li><b>News Collection:</b> News articles are fetched from NewsAPI based on your search query.</li>
+            <li><b>Sentiment Analysis:</b> Each article is evaluated to determine whether its tone is positive or negative.</li>
+            <li><b>Category Classification:</b> Articles are automatically categorized into topics like business, technology, politics, and more.</li>
+            <li><b>Summarization:</b> Long descriptions are summarized to give you only the most important details.</li>
+            <li><b>Trending Words:</b> The most frequently mentioned words across articles are extracted to highlight key topics.</li>
+            <li><b>Charts:</b> Sentiment distribution and trending words are visualized with clear, easy-to-understand charts.</li>
+        </ul>
+        <p>Technologies:</p>
+        <p>NewsAnalyzer combines real-time data collection with machine learning models from Hugging Face, using Flask to seamlessly connect the data processing, analysis, and visualization into a single streamlined experience.</p>
+        <a href="/" style="color: #bbb;">← Back to Home</a>
+    </div>
+</body>
+<footer>
+    Created by Volodymyr Shereperov | <a href="https://github.com/ihaveaplan66/news-analyzer" target="_blank">Source Code on GitHub</a>
+</footer>
+</html>
