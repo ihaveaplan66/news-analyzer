@@ -1,6 +1,6 @@
 # NewsAnalyzer
 
-[Live Demo](https://huggingface.co/spaces/YOUR_USERNAME/NewsAnalyzer)
+![Image](https://github.com/user-attachments/assets/64cc5c9b-6fdd-4d0a-8427-dc76c4284eeb)
 
 NewsAnalyzer is a web application that analyzes news articles using natural language processing (NLP) techniques. It helps users quickly understand the sentiment, key topics, and overall trends in the latest news based on any search query.
 
